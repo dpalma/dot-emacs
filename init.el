@@ -11,6 +11,10 @@
 (require 'linum)
 (add-hook 'find-file-hook (lambda() (linum-mode 1)))
 
+(add-to-list 'load-path "~/.emacs.d/js2-mode")
+(autoload 'js2-mode "js2-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
 (add-to-list 'load-path "~/.emacs.d/multiple-cursors/")
 (require 'multiple-cursors)
 
@@ -25,3 +29,9 @@
       '("" invocation-name ": "(:eval (if (buffer-file-name)
                                           (abbreviate-file-name (buffer-file-name))
                                         "%b"))))
+
+(add-to-list 'load-path "~/.emacs.d/jade-mode")
+(require 'sws-mode)
+(require 'jade-mode)
+(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
+(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
